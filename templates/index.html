@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proxy Generator (Advanced)</title>
+  <style>
+    :root{--bg:#0f1115;--card:#17191f;--muted:#9aa0a6;--accent:#6ee7b7}
+    body{background:var(--bg);color:#e6eef3;font-family:Inter,system-ui,Arial;padding:24px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.6)}
+    .row{display:flex;gap:12px;align-items:center}
+    input[type=range]{width:200px}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Proxy Generator — Advanced</h1>
+    <div class="row">
+      <label>Type:</label>
+      <select id="type"><option value="http">HTTP</option><option value="https">HTTPS</option><option value="socks4">SOCKS4</option><option value="socks5">SOCKS5</option></select>
+      <label>Concurrency:</label>
+      <input id="concurrency" type="range" min="5" max="200" value="40">
+      <span id="concVal">40</span>
+      <button id="gen">Generate</button>
+      <button id="download">Download</button>
+    </div>
+    <p id="status" class="muted">Idle</p>
+    <progress id="prog" value="0" max="100" style="width:100%"></progress>
+    <table id="results"><thead><tr><th>#</th><th>Proxy</th></tr></thead><tbody></tbody></table>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
